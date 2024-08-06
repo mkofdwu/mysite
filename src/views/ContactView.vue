@@ -1,15 +1,27 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import MaterialIcon from '@/components/MaterialIcon.vue'
 import LinkedInIcon from '@/components/icons/LinkedInIcon.vue'
 import GithubIcon from '@/components/icons/GithubIcon.vue'
+import illustration from '@/assets/images/illustration.png'
+
+const height = ref(window.innerHeight + 'px')
+const isSliding = ref(window.innerWidth / window.innerHeight < 1920 / 1074)
+
+window.onresize = () => {
+  height.value = window.innerHeight + 'px'
+  isSliding.value = window.innerWidth / window.innerHeight < 1920 / 1074
+}
 </script>
 
 <template>
   <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-    <img
-      src="@/assets/images/illustration.png"
-      class="w-full h-full object-cover absolute top-0 -right-0.5"
-    />
+    <div
+      :style="{
+        backgroundImage: 'url(' + illustration + ')'
+      }"
+      :class="isSliding ? 'illustration' : 'illustration-static'"
+    ></div>
     <div class="flex flex-col items-start absolute left-14 bottom-14 max-sm:left-8 max-sm:bottom-8">
       <h1 class="mb-5 text-primary">Contact</h1>
       <a class="group mb-4 flex items-center gap-x-6" href="mailto:mkofdwu@gmail.com">
@@ -40,3 +52,34 @@ import GithubIcon from '@/components/icons/GithubIcon.vue'
     </div>
   </div>
 </template>
+
+<style scoped>
+.illustration {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat-x;
+  background-size: contain;
+
+  --width: calc(v-bind(height) * 1920 / 1074);
+  width: calc(2 * var(--width));
+  height: 100%;
+  animation: slide 60s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--width));
+  }
+}
+
+.illustration-static {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+</style>
