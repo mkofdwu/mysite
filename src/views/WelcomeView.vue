@@ -12,17 +12,17 @@ import MaterialIcon from '@/components/MaterialIcon.vue'
     <div
       class="absolute top-1/2 left-1/2 -translate-y-1/2 flex flex-col items-start w-[360px] max-md:left-8 max-md:top-auto max-md:translate-y-0 max-md:bottom-8"
     >
-      <h1 class="mb-4 max-md:mb-2">
+      <h1 class="mb-2 max-md:mb-1">
         Hi, I'm
         <h1 class="text-primary inline">Jia Jie</h1>
       </h1>
-      <p class="mb-8 max-md:mb-6">I'm a CS student studying software engineering & cybersecurity</p>
+      <p class="mb-10 max-md:mb-8">I play CTFs (web, pwn, rev and pyjails).</p>
       <a
         href="https://drive.google.com/file/d/1qVkxCsOKVhcdN39GXOyfgTEl_Uf3Vc_Y/view?usp=sharing"
         target="_blank"
         class="h-14 pl-5 pr-6 rounded-[20px] bg-white transition-colors hover:bg-primary text-black font-semibold flex items-center"
       >
-        <MaterialIcon name="open_in_new" class="mr-4 text-black" />
+        <MaterialIcon name="open_in_new" class="mr-4 text-black text-xl" />
         View resume
       </a>
     </div>

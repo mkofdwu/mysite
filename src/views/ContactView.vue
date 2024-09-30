@@ -24,30 +24,46 @@ window.onresize = () => {
     ></div>
     <div class="flex flex-col items-start absolute left-14 bottom-14 max-sm:left-8 max-sm:bottom-8">
       <h1 class="mb-5 text-primary">Contact</h1>
-      <a class="group mb-4 flex items-center gap-x-6" href="mailto:mkofdwu@gmail.com">
-        <MaterialIcon name="mail" class="h-7" />
+      <a class="group py-2 flex items-center gap-x-6" href="mailto:mkofdwu@gmail.com">
+        <MaterialIcon name="mail" class="h-7 transition-opacity group-hover:opacity-0" />
         <div class="relative">
           mkofdwu@gmail.com
           <div class="absolute w-0 h-px bg-white transition-all group-hover:w-full"></div>
         </div>
+        <MaterialIcon
+          name="arrow_outward"
+          class="absolute transition-all -translate-x-2 translate-y-2 opacity-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+        />
       </a>
       <a
-        class="group mb-4 flex items-center gap-x-6"
+        class="group py-2 flex items-center gap-x-6"
         href="https://linkedin.com/in/lee-jia-jie"
         target="_blank"
       >
-        <LinkedInIcon />
+        <LinkedInIcon class="transition-opacity group-hover:opacity-0" />
         <div class="relative">
           linkedin.com/in/lee-jia-jie
           <div class="absolute w-0 h-px bg-white transition-all group-hover:w-full"></div>
         </div>
+        <MaterialIcon
+          name="arrow_outward"
+          class="absolute transition-all -translate-x-2 translate-y-2 opacity-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+        />
       </a>
-      <a class="group flex items-center gap-x-6" href="https://github.com/mkofdwu" target="_blank">
-        <GithubIcon />
+      <a
+        class="group py-2 flex items-center gap-x-6"
+        href="https://github.com/mkofdwu"
+        target="_blank"
+      >
+        <GithubIcon class="transition-opacity group-hover:opacity-0" />
         <div class="relative">
           mkofdwu
           <div class="absolute w-0 h-px bg-white transition-all group-hover:w-full"></div>
         </div>
+        <MaterialIcon
+          name="arrow_outward"
+          class="absolute transition-all -translate-x-2 translate-y-2 opacity-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+        />
       </a>
     </div>
   </div>

@@ -1,17 +1,41 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+
+const timeUntilORD = ref('')
+
+function updateTimeUntilORD() {
+  const now = new Date().getTime()
+  const timeLeft = new Date(2026, 0, 31).getTime() - now
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
+
+  const daysFmt = days.toString().padStart(2, '0')
+  const hoursFmt = hours.toString().padStart(2, '0')
+  const minutesFmt = minutes.toString().padStart(2, '0')
+  const secondsFmt = seconds.toString().padStart(2, '0')
+
+  timeUntilORD.value = `${daysFmt}:${hoursFmt}:${minutesFmt}:${secondsFmt} to ORD`
+}
+
+updateTimeUntilORD()
+setInterval(updateTimeUntilORD, 1000)
 </script>
 
 <template>
-  <div class="h-20 flex items-center justify-center z-10 gap-x-10 max-sm:gap-x-7 max-sm:h-16">
+  <div class="h-16 flex items-center justify-center z-10 px-10 max-sm:h-14">
+    <router-link to="/" class="flex-1 font-semibold text-lg max-lg:hidden">Jia Jie</router-link>
     <router-link
       to="/"
-      class="transition-opacity"
+      class="transition-opacity mr-10 max-sm:mr-7"
       :class="$route.path === '/' ? 'opacity-100' : 'opacity-60'"
     >
       about me
     </router-link>
-    <a href="https://jiajie-writeups.surge.sh" class="opacity-60">ctf writeups</a>
+    <a href="https://jiajie-writeups.surge.sh" class="mr-10 max-sm:mr-7 opacity-60">ctf writeups</a>
     <router-link
       to="/contact"
       class="transition-opacity"
@@ -19,31 +43,19 @@ import { RouterLink } from 'vue-router'
     >
       contact
     </router-link>
+    <span class="flex-1 text-right opacity-60 max-md:hidden">{{ timeUntilORD }}</span>
   </div>
-  <div
-    class="wave absolute z-10 top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-120px)] max-sm:w-screen max-sm:top-16"
-  ></div>
+  <div class="line top-16 w-[calc(100vw-5rem)] max-sm:top-14 max-sm:w-screen"></div>
 </template>
 
 <style scoped>
-/* Copied from https://css-tricks.com/how-to-create-wavy-shapes-patterns-in-css/ */
-.wave {
-  --size: 5px;
-  --b: 1.5px;
-  --m: 0.9;
-  --p: calc(var(--m) * var(--size));
-  --R: calc(var(--size) * sqrt(var(--m) * var(--m) + 1) + var(--b) / 2);
-
-  --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
-  --mask: radial-gradient(var(--R) at left 50% bottom calc(-1 * var(--p)), var(--_g))
-      calc(50% - 2 * var(--size)) calc(50% - var(--size) / 2 - var(--b) / 2) / calc(4 * var(--size))
-      calc(var(--size) + var(--b)) repeat-x,
-    radial-gradient(var(--R) at left 50% top calc(-1 * var(--p)), var(--_g)) 50%
-      calc(50% + var(--size) / 2 + var(--b) / 2) / calc(4 * var(--size))
-      calc(var(--size) + var(--b)) repeat-x;
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
-  background: #727272;
-  height: 7px;
+.line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1.5px;
+  z-index: 10;
+  background-image: linear-gradient(to right, #525252 33%, rgba(82, 82, 82, 0) 0%);
+  background-size: 12px;
 }
 </style>
