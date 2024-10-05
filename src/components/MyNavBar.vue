@@ -26,16 +26,16 @@ setInterval(updateTimeUntilORD, 1000)
 </script>
 
 <template>
-  <div class="h-16 flex items-center justify-center z-10 px-10 max-sm:h-14">
+  <div class="h-16 flex items-center justify-center z-10 px-10 max-sm:h-14 max-sm:px-0">
     <router-link to="/" class="flex-1 font-semibold text-lg max-lg:hidden">Jia Jie</router-link>
     <router-link
       to="/"
-      class="transition-opacity mr-10 max-sm:mr-7"
+      class="transition-opacity mr-10 max-sm:mr-6"
       :class="$route.path === '/' ? 'opacity-100' : 'opacity-60'"
     >
       about me
     </router-link>
-    <a href="https://jiajie-writeups.surge.sh" class="mr-10 max-sm:mr-7 opacity-60">ctf writeups</a>
+    <a href="https://jiajie-writeups.surge.sh" class="mr-10 max-sm:mr-6 opacity-60">ctf writeups</a>
     <router-link
       to="/contact"
       class="transition-opacity"

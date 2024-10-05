@@ -10,7 +10,7 @@ import MaterialIcon from '@/components/MaterialIcon.vue'
       class="absolute top-1/2 right-1/2 translate-x-36 -translate-y-1/2 max-lg:translate-x-44 max-md:translate-x-2/3 max-md:top-auto max-md:translate-y-0 max-md:bottom-40 max-md:w-[640px] min-w-[640px]"
     />
     <div
-      class="absolute top-1/2 left-1/2 -translate-y-1/2 flex flex-col items-start w-[360px] max-md:left-8 max-md:top-auto max-md:translate-y-0 max-md:bottom-8"
+      class="absolute top-1/2 left-1/2 -translate-y-1/2 flex flex-col items-start max-w-[392px] pr-8 max-md:left-8 max-md:top-auto max-md:translate-y-0 max-md:bottom-8"
     >
       <h1 class="mb-2 max-md:mb-1">
         Hi, I'm
